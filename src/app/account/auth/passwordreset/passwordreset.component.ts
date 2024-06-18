@@ -31,7 +31,7 @@ export class PasswordresetComponent implements OnInit, AfterViewInit {
   ngOnInit() {
 
     this.resetForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      otp: ['', [Validators.required, Validators.email]],
     });
   }
 
