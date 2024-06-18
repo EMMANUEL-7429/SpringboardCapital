@@ -24,24 +24,23 @@ export class LoginComponent implements OnInit {
   submitted = false;
   error = '';
   returnUrl: string;
+  passwordVisible = false;
 
-  // set the currenr year
-  year: number = new Date().getFullYear();
-
-  // tslint:disable-next-line: max-line-length
-  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService,
-    private authFackservice: AuthfakeauthenticationService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private authFackservice: AuthfakeauthenticationService
+  ) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ['admin@themesbrand.com', [Validators.required, Validators.email]],
-      password: ['123456', [Validators.required]],
+      employeeNo: ['', Validators.required],
+      password: ['', Validators.required],
     });
 
-    // reset login status
-    // this.authenticationService.logout();
     // get return url from route parameters or default to '/'
-    // tslint:disable-next-line: no-string-literal
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
@@ -60,13 +59,13 @@ export class LoginComponent implements OnInit {
     } else {
       if (environment.defaultauth === 'firebase') {
         this.authenticationService.login(this.f.email.value, this.f.password.value).then((res: any) => {
-          this.router.navigate(['/account/reset-password']);
+          this.router.navigate(['/dashboard']);
         })
           .catch(error => {
             this.error = error ? error : '';
           });
       } else {
-        this.authFackservice.login(this.f.email.value, this.f.password.value)
+        this.authFackservice.login(this.f.employeeNo.value, this.f.password.value)
           .pipe(first())
           .subscribe(
             data => {
@@ -77,5 +76,21 @@ export class LoginComponent implements OnInit {
             });
       }
     }
+  }
+
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+    const passwordInput = document.getElementById('password') as HTMLInputElement;
+    passwordInput.type = this.passwordVisible ? 'text' : 'password';
+  }
+
+  activateAccount() {
+    // Handle activate account logic
+    console.log('Activate Account clicked');
+  }
+
+  forgotPassword() {
+    // Handle forgot password logic
+    console.log('Forgot Password clicked');
   }
 }
