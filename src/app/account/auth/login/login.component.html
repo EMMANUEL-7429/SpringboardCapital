@@ -1,17 +1,18 @@
-<div class="account-pages my-5 pt-sm-5" style="background: url('assets/images/profile1-img.png') no-repeat center center; background-size: cover;">
+<div class="account-pages my-5 pt-sm-5"style="background: url('assets/images/profile1-img.png') no-repeat center center; background-size: cover;">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-6 col-xl-5">
         <div class="card overflow-hidden">
-          <div class="bg-soft bg-primary" style="position: relative;">
-            <div class="top-image" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('assets/images/profile-img.png') no-repeat center center; background-size: cover; opacity: 0.3;">
-            </div>
-            <div class="row" style="position: relative; z-index: 1;">
+          <div class="bg-soft bg-primary">
+            <div class="row">
               <div class="col-7">
                 <div class="text-primary p-4">
                   <h5 class="text-primary">Welcome Back !</h5>
                   <p>Sign in to continue to SPC.</p>
                 </div>
+              </div>
+              <div class="col-5 align-self-end">
+                <img src="assets/images/profile-img.png" alt="" class="img-fluid">
               </div>
             </div>
           </div>
@@ -27,15 +28,33 @@
             </div>
             <div class="p-2">
               <form class="form-horizontal" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                <ngb-alert type="danger" *ngIf="error" [dismissible]="false">{{ error }}</ngb-alert>
 
-                <div class="mb-3">
+                <ngb-alert type="danger" *ngIf="error" [dismissible]="false">{{ error }}</ngb-alert>
+                
+                <!-- <div class="mb-3">
                   <label for="employeeNo">Employee No.</label>
                   <input type="employeeNo" formControlName="EmployeeNo" class="form-control" id="email" placeholder="Employee No."
                     [ngClass]="{ 'is-invalid': submitted && f.employeeNo.errors }" aria-describedby="password-addon" />
+                    <button class="btn btn-light ms-0" type="button" id="password-addon"><i
+                      class="mdi mdi-eye-outline"></i></button>
                   <div *ngIf="submitted && f.employeeNo.errors" class="invalid-feedback">
                     <div *ngIf="f.employeeNo.errors.required">Employee No is required</div>
                     <div *ngIf="f.employeeNo.errors.email">Employee No must be a valid email address</div>
+                  </div>
+                </div> -->
+                <div class="mb-3">
+                  <label for="employeeNo">Employee No</label>
+                  <div class="input-group auth-pass-inputgroup">
+                    <input type="employeeNo" class="form-control" formControlName="employeeNo" placeholder="Enter password"
+                      [ngClass]="{ 'is-invalid': submitted && f.employeeNo.errors }" aria-label="employeeNo"
+                      aria-describedby="employeeNo-addon">
+
+                    <button class="btn btn-light ms-0" type="button" id="employeeNo-addon"><i
+                        class="mdi mdi-account-outline
+                        "></i></button>
+                    <div *ngIf="submitted && f.employeeNo.errors" class="invalid-feedback">
+                      <span *ngIf="f.employeeNo.errors.required">Employee No is required</span>
+                    </div>
                   </div>
                 </div>
 
@@ -45,52 +64,62 @@
                     <input type="password" class="form-control" formControlName="password" placeholder="Enter password"
                       [ngClass]="{ 'is-invalid': submitted && f.password.errors }" aria-label="Password"
                       aria-describedby="password-addon">
-                    <button class="btn btn-light ms-0" type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
+
+                    <button class="btn btn-light ms-0" type="button" id="password-addon"><i
+                        class="mdi mdi-eye-outline"></i></button>
                     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                       <span *ngIf="f.password.errors.required">Password is required</span>
                     </div>
                   </div>
                 </div>
-
+               
                 <div class="mt-3 d-grid">
-                  <button class="btn btn-primary" type="submit">Sign In</button>
+                  <button class="btn btn-primary custom-blue-btn" type="submit">Sign In</button>
                 </div>
-
+                
                 <div class="row">
                   <div class="col-md-6 mt-3">
                     <button class="btn btn-secondary btn-md btn-block" type="submit" style="width: 100%;">
                       <i class="mdi mdi-account-multiple text-link"></i> Activate Account
                     </button>
                   </div>
+                  
                   <div class="col-md-6 mt-3">
                     <button class="btn btn-secondary btn-md btn-block" type="button" style="width: 100%;">
                       <i class="mdi dripicons-lock-open text-link" style=" margin-right: 2px;"></i>
                       <span style="line-height: 24px;">Forgot Password?</span>
                     </button>
                   </div>
+                  
                 </div>
-
+                
+                
                 <div class="mt-4 text-center">
                   <h5 class="font-size-14 mb-3" style="text-decoration: underline; font-style: italic;">Today's security tips</h5>
                 </div>
+                
                 <div class="mt-4 text-center">
                   <p> Keep your account safe by using strong passwords. Do not write your password down. Do not share OTPs with anyone.</p>
                 </div>
                 <div class="mt-4 text-center">
                   <p class="text-danger">Report any suspicious activities to: info@springboardcapital.co.ke / +254701346189</p>
                 </div>
+                
               </form>
             </div>
+
           </div>
         </div>
-
+      
         <div class="mt-5 text-center">
-          <p> Developed By: The Micropoint Systems Ltd </p>
-          <p>Springboard_Capital © 2024. All rights reserved.</p>
+          <p class="text-link text-white">Developed By: The Micropoint Systems Ltd <small class="text-muted"></small></p>
+          <p class="text-link text-white">Springboard_Capital © 2024. All rights reserved. <small class="text-muted"></small></p>
         </div>
+
       </div>
     </div>
   </div>
+
   <!-- end container -->
 </div>
 <!-- end page -->
