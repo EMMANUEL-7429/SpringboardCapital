@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { AuthenticationService } from '../../../core/services/auth.service';
 import { environment } from '../../../../environments/environment';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-passwordreset',
@@ -59,4 +60,8 @@ export class PasswordresetComponent implements OnInit, AfterViewInit {
         });
     }
   }
+  resendCode(){
+    alert('Code sent to Email')
+  }
+  
 }
