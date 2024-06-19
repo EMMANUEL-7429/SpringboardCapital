@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
   timer() {
     let timerInterval;
     Swal.fire({
-      timer: 2000,
+      timer: 1000,
 
       didOpen: () => {
         Swal.showLoading();
@@ -94,7 +94,7 @@ export class LoginComponent implements OnInit {
               b.textContent = Swal.getTimerLeft() + ''
             }
           }
-        }, 100);
+        }, 0);
       },
       willClose: () => {
         clearInterval(timerInterval);
@@ -106,5 +106,8 @@ export class LoginComponent implements OnInit {
         console.log('I was closed by the timer');
       }
     });
+  }
+  activateAccount() {
+    this.router.navigate(['/account/login-2']);
   }
 }

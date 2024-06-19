@@ -31,17 +31,7 @@
 
                 <ngb-alert type="danger" *ngIf="error" [dismissible]="false">{{ error }}</ngb-alert>
                 
-                <!-- <div class="mb-3">
-                  <label for="employeeNo">Employee No.</label>
-                  <input type="employeeNo" formControlName="EmployeeNo" class="form-control" id="email" placeholder="Employee No."
-                    [ngClass]="{ 'is-invalid': submitted && f.employeeNo.errors }" aria-describedby="password-addon" />
-                    <button class="btn btn-light ms-0" type="button" id="password-addon"><i
-                      class="mdi mdi-eye-outline"></i></button>
-                  <div *ngIf="submitted && f.employeeNo.errors" class="invalid-feedback">
-                    <div *ngIf="f.employeeNo.errors.required">Employee No is required</div>
-                    <div *ngIf="f.employeeNo.errors.email">Employee No must be a valid email address</div>
-                  </div>
-                </div> -->
+                
                 <div class="mb-3">
                   <label for="employeeNo">Employee No</label>
                   <div class="input-group auth-pass-inputgroup">
@@ -77,9 +67,11 @@
                   <button class="btn btn-primary custom-blue-btn" id="sa-close" (click)="timer()" type="submit">Sign In</button>
                 </div>
                 
+                
+                
                 <div class="row">
                   <div class="col-md-6 mt-3">
-                    <button class="btn btn-secondary btn-md btn-block" type="submit" style="width: 100%;">
+                    <button class="btn btn-secondary btn-md btn-block" type="button" style="width: 100%;" (click)="activateAccount()">
                       <i class="mdi mdi-account-multiple text-link"></i> Activate Account
                     </button>
                   </div>
