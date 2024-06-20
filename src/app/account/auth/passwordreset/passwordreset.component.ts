@@ -60,8 +60,10 @@ export class PasswordresetComponent implements OnInit, AfterViewInit {
         });
     }
   }
-  resendCode(){
-    alert('Code sent to Email')
+  resendCode() {
+    this.success = 'Code sent to Email';
+    setTimeout(() => {
+      this.success = '';
+    }, 2000); // Message disappears after 2 seconds
   }
-  
 }
