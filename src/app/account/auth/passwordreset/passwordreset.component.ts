@@ -22,6 +22,7 @@ export class PasswordresetComponent implements OnInit, AfterViewInit {
   error = '';
   success = '';
   loading = false;
+  correctOtp= '';
 
   // set the currenr year
   year: number = new Date().getFullYear();
@@ -33,6 +34,7 @@ export class PasswordresetComponent implements OnInit, AfterViewInit {
 
     this.resetForm = this.formBuilder.group({
       otp: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
     });
   }
 
@@ -60,6 +62,36 @@ export class PasswordresetComponent implements OnInit, AfterViewInit {
         });
     }
   }
+
+  verifyOtp(){
+    this.submitted = true;
+    this.error = '';
+    this.success = '';
+
+
+    if (this.resetForm.invalid) {
+      return;
+    }
+
+    if (!this.resetForm.value.otp) {
+      this.error = 'Please enter the OTP.';
+      setTimeout(() => {
+        this.error = '';
+      }, 2000);
+    } else if (this.resetForm.value.otp !== this.correctOtp) {
+      this.error = 'Incorrect OTP. Please try again.';
+      setTimeout(() => {
+        this.error = '';
+      }, 2000);
+    } else {
+      this.success = 'OTP verified successfully';
+      setTimeout(() => {
+        this.success = '';
+      }, 2000);
+    }
+
+  }
+
   resendCode() {
     this.success = 'Code sent to Email';
     setTimeout(() => {

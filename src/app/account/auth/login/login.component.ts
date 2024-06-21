@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   error = '';
   returnUrl: string;
+  showPassword = false;
 
   // set the currenr year
   year: number = new Date().getFullYear();
@@ -52,6 +53,11 @@ export class LoginComponent implements OnInit {
   /**
    * Form submit
    */
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
   onSubmit() {
     this.submitted = true;
 
