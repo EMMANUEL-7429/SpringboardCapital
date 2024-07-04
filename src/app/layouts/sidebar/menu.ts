@@ -507,6 +507,12 @@ export const MENU: MenuItem[] = [
                 link: '/pages/500',
                 parentId: 72
             },
+            {
+                id: 80,
+                label: 'MENUITEMS.CALENDAR.TEXT',
+                icon: 'bx-dashbaord',
+                link: '/dahboard',
+            },
         ]
     },
     {

@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { emailSentBarChart, monthlyEarningChart } from './data';
-import { ChartType } from './dashboard.model';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { EventService } from '../../../core/services/event.service';
+
+
 
 import { ConfigService } from '../../../core/services/config.service';
 
@@ -12,121 +10,77 @@ import { ConfigService } from '../../../core/services/config.service';
   styleUrls: ['./default.component.scss']
 })
 export class DefaultComponent implements OnInit {
-
-  isVisible: string;
-
-  emailSentBarChart: ChartType;
-  monthlyEarningChart: ChartType;
-  transactions: Array<[]>;
-  statData: Array<[]>;
-
-  isActive: string;
-
+  imageSrc: string | ArrayBuffer = "assets/images/imagenotfound.png";
+  imageSrc2: string | ArrayBuffer = "assets/images/imagenotfound.png";
+  _album: any[] = [];
+  isValid:boolean=true;
+  memberDetails: any = {
+    FullName: '',
+    SearchName: '',
+    IsPerson: false,
+    Payroll: '',
+    IdType: '0',
+    IdNo: '',
+    GenderId: '0',
+    NationalityId: '0',
+    RegistrationDate: '',
+    DOB: '',
+    NSSFNo: '',
+    LevelofEducationId: '0',
+    MaritalStatusId: '0',
+    NHIFNo: '',
+    CompanyRegistrationDate: '',
+    CompanyCertificateNo: ''
+  };
   @ViewChild('content') content;
-  constructor(private modalService: NgbModal, private configService: ConfigService, private eventService: EventService) {
+  constructor() {
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+  successmsg(){}
+  //handleFileInput(file:FileList){}
+  downloadPassport() {
+    // Implement download logic for passport photo
+  }
+
+  handleProfilePhotoUpload(event: any) {
+    // Implement upload logic for profile photo
+  }
+  onInputFullname() {
+    // Implement logic for FullName input change if needed
+  }
+
+ 
+  //openImage(index: number) {
+    // Implement logic for opening an image from _album array
+ // }
+  handleFileInput(files: FileList): void {
+    // Implement file handling logic here, such as uploading or displaying images
+  }
+
+  openImage(index: number): void {
+    // Implement logic to open the clicked image
+  }
+  
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        this.imageSrc2= reader.result;
+        
+      };
+
+      reader.readAsDataURL(file);
+    }
+  }
+}
 
     /**
      * horizontal-vertical layput set
      */
-     const attribute = document.body.getAttribute('data-layout');
-
-     this.isVisible = attribute;
-     const vertical = document.getElementById('layout-vertical');
-     if (vertical != null) {
-       vertical.setAttribute('checked', 'true');
-     }
-     if (attribute == 'horizontal') {
-       const horizontal = document.getElementById('layout-horizontal');
-       if (horizontal != null) {
-         horizontal.setAttribute('checked', 'true');
-         console.log(horizontal);
-       }
-     }
-
-    /**
-     * Fetches the data
-     */
-    this.fetchData();
-  }
-
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.openModal();
-    }, 2000);
-  }
-
-  /**
-   * Fetches the data
-   */
-  private fetchData() {
-    this.emailSentBarChart = emailSentBarChart;
-    this.monthlyEarningChart = monthlyEarningChart;
-
-    this.isActive = 'year';
-    this.configService.getConfig().subscribe(data => {
-      this.transactions = data.transactions;
-      this.statData = data.statData;
-    });
-  }
-
-  openModal() {
-    this.modalService.open(this.content, { centered: true });
-  }
-
-  weeklyreport() {
-    this.isActive = 'week';
-    this.emailSentBarChart.series =
-      [{
-        name: 'Series A',
-         data: [44, 55, 41, 67, 22, 43, 36, 52, 24, 18, 36, 48]
-      }, {
-        name: 'Series B',
-        data: [11, 17, 15, 15, 21, 14, 11, 18, 17, 12, 20, 18]
-      }, {
-        name: 'Series C',
-        data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22]
-      }];
-  }
-
-  monthlyreport() {
-    this.isActive = 'month';
-    this.emailSentBarChart.series =
-      [{
-        name: 'Series A',
-         data: [44, 55, 41, 67, 22, 43, 36, 52, 24, 18, 36, 48]
-      }, {
-        name: 'Series B',
-        data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22]
-      }, {
-        name: 'Series C',
-        data: [11, 17, 15, 15, 21, 14, 11, 18, 17, 12, 20, 18]
-      }];
-  }
-
-  yearlyreport() {
-    this.isActive = 'year';
-    this.emailSentBarChart.series =
-      [{
-        name: 'Series A',
-         data: [13, 23, 20, 8, 13, 27, 18, 22, 10, 16, 24, 22]
-      }, {
-        name: 'Series B',
-        data: [11, 17, 15, 15, 21, 14, 11, 18, 17, 12, 20, 18]
-      }, {
-        name: 'Series C',
-        data: [44, 55, 41, 67, 22, 43, 36, 52, 24, 18, 36, 48]
-      }];
-  }
-
-
-  /**
-   * Change the layout onclick
-   * @param layout Change the layout
-   */
-   changeLayout(layout: string) {
-    this.eventService.broadcast('changeLayout', layout);
-  }
-}
+     
