@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ChatComponent } from './chat/chat.component';
 import { DefaultComponent } from './dashboards/default/default.component';
-import { FilemanagerComponent } from './filemanager/filemanager.component';
+import { LeaveApplicationComponent } from './LeaveApplication/leaveapplication.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard' },
@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DefaultComponent },
   { path: 'calendar', component: CalendarComponent },
   { path: 'chat', component: ChatComponent },
-  { path: 'filemanager', component: FilemanagerComponent },
+  { path: 'leaveapplication', component: LeaveApplicationComponent },
   { path: 'dashboards', loadChildren: () => import('./dashboards/dashboards.module').then(m => m.DashboardsModule) },
   { path: 'ecommerce', loadChildren: () => import('./ecommerce/ecommerce.module').then(m => m.EcommerceModule) },
   { path: 'crypto', loadChildren: () => import('./crypto/crypto.module').then(m => m.CryptoModule) },
@@ -28,7 +28,8 @@ const routes: Routes = [
   { path: 'tables', loadChildren: () => import('./tables/tables.module').then(m => m.TablesModule) },
   { path: 'icons', loadChildren: () => import('./icons/icons.module').then(m => m.IconsModule) },
   { path: 'charts', loadChildren: () => import('./chart/chart.module').then(m => m.ChartModule) },
-  { path: 'maps', loadChildren: () => import('./maps/maps.module').then(m => m.MapsModule) }
+  { path: 'maps', loadChildren: () => import('./maps/maps.module').then(m => m.MapsModule) },
+  {path:'leave-application',loadChildren:()=>import('./leave-application/leave-application.module').then(m=>m.LeaveApplicationModule)}
 ];
 
 @NgModule({

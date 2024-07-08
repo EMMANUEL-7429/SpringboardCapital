@@ -39,6 +39,12 @@ export const MENU: MenuItem[] = [
                 link: '/dashboards/blog',
                 parentId: 2
             },
+            {
+                id: 11,
+                label: "Leave Application",
+                link: "/dashboard/leave-application",
+                parentId: "2",
+              },
         ]
     },
     {
@@ -65,13 +71,13 @@ export const MENU: MenuItem[] = [
     },
     {
         id: 11,
-        label: 'MENUITEMS.FILEMANAGER.TEXT',
+        label: 'LEAVE APPLICATION',
         icon: 'bx-file',
-        link: '/filemanager',
-        badge: {
-            variant: 'success',
-            text: 'MENUITEMS.FILEMANAGER.BADGE',
-        },
+        link: '/leaveapplication',
+        // badge: {
+        //     variant: 'success',
+        //     text: 'LEAVE APPLICATION',
+        // },
     },
     {
         id: 12,

@@ -12,6 +12,7 @@ import { ConfigService } from '../../../core/services/config.service';
 export class DefaultComponent implements OnInit {
   imageSrc: string | ArrayBuffer = "assets/images/imagenotfound.png";
   imageSrc2: string | ArrayBuffer = "assets/images/imagenotfound.png";
+  currentTab: number = 0;
   _album: any[] = [];
   isValid:boolean=true;
   memberDetails: any = {
@@ -51,15 +52,13 @@ export class DefaultComponent implements OnInit {
   }
 
  
-  //openImage(index: number) {
-    // Implement logic for opening an image from _album array
- // }
+  
   handleFileInput(files: FileList): void {
-    // Implement file handling logic here, such as uploading or displaying images
+    
   }
 
   openImage(index: number): void {
-    // Implement logic to open the clicked image
+    
   }
   
 
@@ -78,9 +77,10 @@ export class DefaultComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
+  nextPrev(step: number) {
+    this.currentTab += step;
+   
+}
 }
 
-    /**
-     * horizontal-vertical layput set
-     */
-     
+  

@@ -20,7 +20,7 @@
             <div class="row card-body">
                 <div class="col-lg-4">
                     <div class="col-12">
-                     <h4 style="color: orange"><i>USER PHOTO</i></h4> 
+                     <h4 style="color:orange"><i>USER PHOTO</i></h4> 
                      <img [src]="imageSrc" *ngIf="imageSrc" height="200" width="350" alt="Selected Image"/>
                      <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
 
@@ -214,7 +214,7 @@
                             <div class="card mb-3 text-center">
                                 <div style="width: 100px; height: 100px; cursor: pointer; opacity: 0;" accept="image/*" (change)="handleFileInput($event.target.files)"
                                     class="card-text text-danger" style="font-style: italic;">
-                                    FRONTEND PHOTO
+                                    FRONT ID PHOTO
                                    
                                     
                                         <img [src]="imageSrc2" *ngIf="imageSrc2" width="200" height="150" alt="Selected Image"/>
@@ -229,12 +229,12 @@
                             <div class="card mb-3 text-center">
                                 <div style="width: 100px; height: 100px; cursor: pointer; opacity: 0;" accept="image/*" (change)="handleFileInput($event.target.files)"
                                     class="card-text text-danger" style="font-style: italic;">
-                                    BACKEND PHOTO
-                                </div>
-                                <div class="card-body text-center">
-                                    <input type="file" style="width: 100px; height: 100px; cursor: pointer; opacity: 0;" accept="image/*" (change)="handleFileInput($event.target.files)">
-                                    <p class="card-text text-danger mt-3" style="font-style: italic;">Select Image</p>
+                                    BACK ID PHOTO
+                                   
                                     
+                                        <img [src]="imageSrc2" *ngIf="imageSrc2" width="200" height="150" alt="Selected Image"/>
+                                        <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
+                                  
                                 </div>
                             </div>
                             
@@ -244,12 +244,15 @@
                                 <div style="width: 100px; height: 100px; cursor: pointer; opacity: 0;" accept="image/*" (change)="handleFileInput($event.target.files)"
                                     class="card-text text-danger" style="font-style: italic;">
                                     SIGNATURE PHOTO
-                                </div>
-                                <div class="card-body text-center">
-                                    <input type="file" style="width: 100px; height: 100px; cursor: pointer; opacity: 0;" accept="image/*" (change)="handleFileInput($event.target.files)">
-                                    <p class="card-text text-danger mt-3" style="font-style: italic;">Select Image</p>
+                                   
                                     
+                                        <img [src]="imageSrc2" *ngIf="imageSrc2" width="200" height="150" alt="Selected Image"/>
+                                        <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
+                                  
                                 </div>
+                                
+                               
+                               
                             </div>
                             
                         </div>
@@ -258,12 +261,14 @@
                                 <div style="width: 100px; height: 100px; cursor: pointer; opacity: 0;" accept="image/*" (change)="handleFileInput($event.target.files)"
                                     class="card-text text-danger" style="font-style: italic;">
                                     KRA-PIN PHOTO
-                                </div>
-                                <div class="card-body text-center">
-                                    <input type="file" style="width: 100px; height: 100px; cursor: pointer; opacity: 0;" accept="image/*" (change)="handleFileInput($event.target.files)">
-                                    <p class="card-text text-danger mt-3" style="font-style: italic;">Select Image</p>
+                                   
                                     
+                                        <img [src]="imageSrc2" *ngIf="imageSrc2" width="200" height="150" alt="Selected Image"/>
+                                        <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
+                                  
                                 </div>
+                                
+                                
                             </div>
                             
                         </div>
