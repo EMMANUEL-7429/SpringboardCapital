@@ -44,13 +44,19 @@ export class LeaveApplicationComponent implements OnInit {
 
   onSubmit() {
     if (this.leaveApplicationForm.valid) {
-      // Here you can submit the form data to your backend or store it locally
-      console.log(this.leaveApplicationForm.value);
-
-      // Clear the form after submission if needed
-      this.leaveApplicationForm.reset();
+      // Assuming you want to simulate submitting to backend
+      this.loading = true; // Show loading indicator if necessary
+  
+      // Simulate backend submission (replace with actual HTTP call)
+      setTimeout(() => {
+        console.log('Form submitted:', this.leaveApplicationForm.value);
+        this.loading = false; // Hide loading indicator
+        this.successmsg(); // Call success message or further action
+        this.leaveApplicationForm.reset(); // Reset the form after submission
+      }, 1000); // Simulate API call delay
     }
   }
+  
   successmsg(){}
 }
 
