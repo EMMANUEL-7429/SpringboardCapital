@@ -5,7 +5,7 @@ import { DefaultComponent } from './default/default.component';
 import { SaasComponent } from './saas/saas.component';
 import { CryptoComponent } from './crypto/crypto.component';
 import { BlogComponent } from './blog/blog.component';
-import { LeaveApplicationComponent } from '../leave-application/leave-application/leave-application.component';
+///import { LeaveApplicationComponent } from '../leave-application/leave-application/leave-application.component';
 
 const routes: Routes = [
     {
@@ -24,10 +24,10 @@ const routes: Routes = [
         path: 'blog',
         component: BlogComponent
     },
-    {
-        path:'leave-application',
-        component:LeaveApplicationComponent
-    }
+    // {
+    //     path:'leave-application',
+    //     component:LeaveApplicationComponent
+    // }
 ];
 
 @NgModule({
