@@ -1,0 +1,28 @@
+<div class="container-fluid mt-5">
+  <div class="row justify-content-start">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-header">
+          P9
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="generateP9()">
+            <div class="form-group position-relative">
+              <label for="year">Year *</label>
+              <select id="year" class="form-control custom-select pl-2">
+                <option value="" disabled selected>Select...</option>
+                <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+              </select>
+            </div>
+            <div class="form-check">
+              <!--<input type="checkbox" class="form-check-input" id="excelFormat" [(ngModel)]="excelFormat" name="excelFormat"> -->
+              <input type="checkbox" class="form-check-input" id="excelFormat"  name="excelFormat">
+              <label class="form-check-label" for="excelFormat">Excel Format</label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Generate P9</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
