@@ -7,6 +7,7 @@ import { DefaultComponent } from './dashboards/default/default.component';
 import { LeaveApplicationComponent } from './LeaveApplication/leaveapplication.component';
 import { PayslipComponent } from './pay-slip/pay-slip.component';
 import { P9Component } from './p9/p9.component';
+import { LeaveApprovalComponent } from './leave-approval/leave-approval.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'leaveapplication', component: LeaveApplicationComponent },
   { path:'payslip', component: PayslipComponent },
   { path:'p9', component: P9Component },
+  { path:'approval', component: LeaveApprovalComponent },
   { path: 'dashboards', loadChildren: () => import('./dashboards/dashboards.module').then(m => m.DashboardsModule) },
   { path: 'ecommerce', loadChildren: () => import('./ecommerce/ecommerce.module').then(m => m.EcommerceModule) },
   { path: 'crypto', loadChildren: () => import('./crypto/crypto.module').then(m => m.CryptoModule) },
