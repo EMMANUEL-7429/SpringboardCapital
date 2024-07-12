@@ -1,30 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 
-import { overviewBarChart } from './data';
-
-import { ChartType } from './overview.model';
-
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss']
 })
-
-/**
- * Overview component
- */
 export class OverviewComponent implements OnInit {
+  years: number[] = [];
+  selectedYear: number;
+  excelFormat: boolean = false;
 
-  // bread crumb items
-  breadCrumbItems: Array<{}>;
-
-  overviewBarChart: ChartType;
+  // breadcrumb items
+  breadCrumbItems: Array<{ label: string, active?: boolean }> = [];
 
   constructor() { }
 
-  ngOnInit() {
-    this.breadCrumbItems = [{ label: 'Projects' }, { label: 'Projects Overview', active: true }];
+  ngOnInit(): void {
+    this.breadCrumbItems = [
+      { label: 'Projects' },
+      { label: 'Projects Overview', active: true }
+    ];
 
-    this.overviewBarChart = overviewBarChart;
+    // Initialize years with a range of sample years
+    const currentYear = new Date().getFullYear();
+    for (let year = currentYear; year >= currentYear - 10; year--) {
+      this.years.push(year);
+    }
+  }
+
+  generateP9(): void {
+    // Implement your logic to generate the P9
+    console.log('Generating P9 for year:', this.selectedYear, 'with Excel format:', this.excelFormat);
   }
 }
