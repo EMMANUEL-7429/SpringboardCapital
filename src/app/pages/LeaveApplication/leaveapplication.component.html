@@ -36,22 +36,33 @@
                         <div class="col-sm-2 col-md-3">
                             <label>Leave Type</label>
                             <select class="form-select" formControlName="leaveType">
-                                <option value="0">Select</option>
-                                <!-- Add options dynamically if needed -->
+                              <option value="">Select Leave Type</option>
+                              <option *ngFor="let type of leaveTypes" [value]="type">{{ type }}</option>
                             </select>
+                            <div *ngIf="leaveApplicationForm.get('leaveType').invalid && (leaveApplicationForm.get('leaveType').dirty || leaveApplicationForm.get('leaveType').touched)" class="text-danger">
+                              <div *ngIf="leaveApplicationForm.get('leaveType').errors?.required">Leave Type is required.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="row">
-                        <div class="col-sm-2 col-md-3">
-                            <label>No of days Applied</label>
-                            <input type="text" class="form-control" formControlName="daysApplied">
+                      <div class="col-sm-2 col-md-3">
+                        <label>No of days Applied</label>
+                        <input type="text" class="form-control" formControlName="daysApplied">
+                        <div *ngIf="leaveApplicationForm.get('daysApplied').invalid && (leaveApplicationForm.get('daysApplied').dirty || leaveApplicationForm.get('daysApplied').touched)" class="text-danger">
+                          <div *ngIf="leaveApplicationForm.get('daysApplied').errors?.required">Days Applied is required.</div>
                         </div>
+                      </div>
+                      
                         <div class="col-sm-2 col-md-3">
-                            <label>Start Date</label>
-                            <input type="date" class="form-control" formControlName="startDate">
+                          <label>Start Date</label>
+                          <input type="date" class="form-control" formControlName="startDate">
+                          <div *ngIf="leaveApplicationForm.get('startDate').invalid && (leaveApplicationForm.get('startDate').dirty || leaveApplicationForm.get('startDate').touched)" class="text-danger">
+                            <div *ngIf="leaveApplicationForm.get('startDate').errors?.required">Start Date is required.</div>
+                          </div>
                         </div>
+                        
                         <div class="col-sm-2 col-md-3">
                             <label>End date</label>
                             <input class="form-control" readonly>
@@ -79,9 +90,12 @@
                         <div class="col-sm-2 col-md-3">
                             <label>Reliever</label>
                             <select class="form-select" formControlName="reliever">
-                                <option value="0">Select</option>
-                                <!-- Add options dynamically if needed -->
+                              <option value="">Select Reliever</option>
+                              <option *ngFor="let reliever of relievers" [value]="reliever">{{ reliever }}</option>
                             </select>
+                            <div *ngIf="leaveApplicationForm.get('reliever').invalid && (leaveApplicationForm.get('reliever').dirty || leaveApplicationForm.get('reliever').touched)" class="text-danger">
+                              <div *ngIf="leaveApplicationForm.get('reliever').errors?.required">Reliever is required.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,6 +114,9 @@
                             <div class="input-group">
                                 <textarea class="form-control" aria-label="With textarea" placeholder="Enter Comments" formControlName="leavePurpose"></textarea>
                                 &nbsp;
+                            </div>
+                            <div *ngIf="leaveApplicationForm.get('leavePurpose').invalid && (leaveApplicationForm.get('leavePurpose').dirty || leaveApplicationForm.get('leavePurpose').touched)" class="text-danger">
+                              <div *ngIf="leaveApplicationForm.get('leavePurpose').errors?.required">Leave Purpose  is required.</div>
                             </div>
                         </div>
                     </div>
@@ -134,109 +151,106 @@
                 </div>
             </form>
         </div>
-        
+
         <!-- <div class="modal-footer">
           <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
         </div> -->
       </ng-template>
-    <!-- Main Content -->
-    <div *ngIf="isNodeLoading">
-      <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="card shadow-none border mb-0" aria-hidden="true">
-          <div class="card-body">
-            <div class="row">
-              <div class="mb-3 text-center">
-                <p class="text-muted">Extra large modal</p>
-                <button type="button" class="btn btn-primary" (click)="openNewApplicationModal(newApplicationModal)">Extra large modal</button>
-              </div>
-              <div class="row mb-3">
-                <div class="col-12">
-                  <button class="btn btn-primary" (click)="openNewApplicationModal(newApplicationModal)">New Application</button>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="text-sm-end">
-                  <div class="search-box me-2 mb-2 d-inline-block">
-                    <div class="position-relative">
-                      <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchText" (input)="search()">
-                      <i class="bx bx-search-alt search-icon"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
+<div *ngIf="isNodeLoading">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="card shadow-none border mb-0" aria-hidden="true">
+      <div class="card-body">
+        <div class="row">
+          <div class="mb-3 text-center">
+            <p class="text-muted">Extra large modal</p>
+            <button type="button" class="btn btn-primary" (click)="openNewApplicationModal(newApplicationModal)">Extra large modal</button>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12">
+              <button class="btn btn-primary" (click)="openNewApplicationModal(newApplicationModal)">New Application</button>
             </div>
-            <div class="table-responsive mt-0">
-              <table class="table table-hover table-sm mb-0">
-                <thead class="table-success">
-                  <tr>
-                    <th><span class="placeholder-glow">#</span></th>
-                    <th><span class="placeholder-glow">Leave Type</span></th>
-                    <th><span class="placeholder-glow">Application Date</span></th>
-                    <th><span class="placeholder-glow">Start Date</span></th>
-                    <th><span class="placeholder-glow">Days</span></th>
-                    <th><span class="placeholder-glow">Return Date</span></th>
-                    <th><span class="placeholder-glow">Reliever</span></th>
-                    <th style="padding-right: 30px; padding-left: 30px">Status</th>
-                  </tr>
-                </thead>
-              </table>
+          </div>
+          <div class="col-6">
+            <div class="text-sm-end">
+              <div class="search-box me-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchText" (input)="search()">
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  
-    <div *ngIf="!isNodeLoading">
-      <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="card shadow-none border mb-0" aria-hidden="true">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-6">
-                <button class="btn btn-primary" (click)="openNewApplicationModal(newApplicationModal)">New Application</button>
-              </div>
-              <div class="col-6">
-                <div class="text-sm-end">
-                  <div class="search-box me-2 mb-2 d-inline-block">
-                    <div class="position-relative">
-                      <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchText" (input)="search()">
-                      <i class="bx bx-search-alt search-icon"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="table-responsive mt-0">
-              <table class="table table-striped table-hover table-sm mb-0">
-                <thead class="table-success">
-                  <tr>
-                    <th>#</th>
-                    <th>Leave Type</th>
-                    <th>Application Date</th>
-                    <th>Start Date</th>
-                    <th>Days</th>
-                    <th>Return Date</th>
-                    <th>Reliever</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    <tbody>
-                        <tr *ngFor="let item of leaveApplications; let i = index">
-                          <td>{{ i + 1 }}</td>
-                          <td>{{ item.leaveType }}</td>
-                          <td>{{ item.applicationDate }}</td>
-                          <td>{{ item.startDate }}</td>
-                          <td>{{ item.days }}</td>
-                          <td>{{ item.returnDate }}</td>
-                          <td>{{ item.reliever }}</td>
-                          <td>{{ item.status }}</td>
-                        </tr>      
-                </tbody>
-              </table>
-            </div>
-          </div>
+        <div class="table-responsive mt-0">
+          <table class="table table-hover table-sm mb-0">
+            <thead class="table-success">
+              <tr>
+                <th>#</th>
+                <th>Leave Type</th>
+                <th>Application Date</th>
+                <th>Start Date</th>
+                <th>Days</th>
+                <th>Return Date</th>
+                <th>Reliever</th>
+                <th style="padding-right: 30px; padding-left: 30px">Status</th>
+              </tr>
+            </thead>
+            <!-- Placeholder for table content -->
+          </table>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
+
+<div *ngIf="!isNodeLoading">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="card shadow-none border mb-0" aria-hidden="true">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <button class="btn btn-primary" (click)="openNewApplicationModal(newApplicationModal)">New Application</button>
+          </div>
+          <div class="col-6">
+            <div class="text-sm-end">
+              <div class="search-box me-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchText" (input)="search()">
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive mt-0">
+          <table class="table table-striped table-hover table-sm mb-0">
+            <thead class="table-success">
+              <tr>
+                <th>#</th>
+                <th>Leave Type</th>
+                <th>Application Date</th>
+                <th>Start Date</th>
+                <th>Days</th>
+                <th>Return Date</th>
+                <th>Reliever</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of leaveApplications; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item.leaveType }}</td>
+                <td>{{ item.applicationDate }}</td>
+                <td>{{ item.startDate }}</td>
+                <td>{{ item.days }}</td>
+                <td>{{ item.returnDate }}</td>
+                <td>{{ item.reliever }}</td>
+                <td>{{ item.status }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
