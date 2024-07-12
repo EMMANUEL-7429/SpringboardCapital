@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./overview.component.scss']
 })
 export class OverviewComponent implements OnInit {
+  IsNodeLoading: boolean=false;
   years: number[] = [];
   selectedYear: number;
   excelFormat: boolean = false;
