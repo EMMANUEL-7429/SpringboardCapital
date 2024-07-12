@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardsRoutingModule } from './dashboards-routing.module';
 import { UIModule } from '../../shared/ui/ui.module';
 import { WidgetModule } from '../../shared/widget/widget.module';
+import { ArchwizardModule } from 'angular-archwizard';
 
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { SharedModule } from './saas/shared/shared.module'
@@ -28,6 +29,7 @@ import { BlogComponent } from './blog/blog.component';
     NgbTooltipModule,
     NgbNavModule,
     WidgetModule,
+    ArchwizardModule,
     NgApexchartsModule,
     SharedModule,
     SimplebarAngularModule

@@ -37,9 +37,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ChatComponent } from './chat/chat.component';
 
 import { LeaveApplicationComponent } from './LeaveApplication/leaveapplication.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { P9Component } from './p9/p9.component';
-import { PayslipComponent } from './pay-slip/pay-slip.component';
+//import { DashboardComponent } from './dashboard/dashboard.component';
+//import { P9Component } from './p9/p9.component';
+//import { PayslipComponent } from './pay-slip/pay-slip.component';
 import { LeaveApprovalComponent } from './leave-approval/leave-approval.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -49,7 +49,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
 ]);
 
 @NgModule({
-  declarations: [CalendarComponent, ChatComponent, LeaveApplicationComponent, DashboardComponent, P9Component, PayslipComponent, LeaveApprovalComponent],
+  declarations: [CalendarComponent, ChatComponent, LeaveApplicationComponent, LeaveApprovalComponent],
   imports: [
     CommonModule,
     FormsModule,

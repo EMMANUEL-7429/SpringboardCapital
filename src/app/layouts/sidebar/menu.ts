@@ -39,12 +39,7 @@ export const MENU: MenuItem[] = [
                 link: '/dashboards/blog',
                 parentId: 2
             },
-            {
-                id: 11,
-                label: "Leave Application",
-                link: "/dashboard/leave-application",
-                parentId: "2",
-              },
+            
         ]
     },
     {

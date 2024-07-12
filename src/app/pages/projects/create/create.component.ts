@@ -12,6 +12,8 @@ import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
  * Projects-create component
  */
 export class CreateComponent implements OnInit {
+  Loading:boolean=false;
+  IsNodeLoading:boolean=false;
 
   constructor(private calendar: NgbCalendar) { }
   // bread crumb items

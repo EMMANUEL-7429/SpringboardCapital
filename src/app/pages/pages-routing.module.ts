@@ -5,8 +5,8 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { ChatComponent } from './chat/chat.component';
 import { DefaultComponent } from './dashboards/default/default.component';
 import { LeaveApplicationComponent } from './LeaveApplication/leaveapplication.component';
-import { PayslipComponent } from './pay-slip/pay-slip.component';
-import { P9Component } from './p9/p9.component';
+//import { PayslipComponent } from './pay-slip/pay-slip.component';
+//import { P9Component } from './p9/p9.component';
 import { LeaveApprovalComponent } from './leave-approval/leave-approval.component';
 
 const routes: Routes = [
@@ -16,8 +16,8 @@ const routes: Routes = [
   { path: 'calendar', component: CalendarComponent },
   { path: 'chat', component: ChatComponent },
   { path: 'leaveapplication', component: LeaveApplicationComponent },
-  { path:'payslip', component: PayslipComponent },
-  { path:'p9', component: P9Component },
+ // { path:'payslip', component: PayslipComponent },
+//{ path:'p9', component: P9Component },
   { path:'approval', component: LeaveApprovalComponent },
   { path: 'dashboards', loadChildren: () => import('./dashboards/dashboards.module').then(m => m.DashboardsModule) },
   { path: 'ecommerce', loadChildren: () => import('./ecommerce/ecommerce.module').then(m => m.EcommerceModule) },

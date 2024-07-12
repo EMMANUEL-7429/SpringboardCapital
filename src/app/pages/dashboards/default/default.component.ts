@@ -13,6 +13,7 @@ export class DefaultComponent implements OnInit {
   currentTab: number = 0;
   isValid: boolean = true;
   dashboard: FormGroup;
+  breadCrumbItems: Array<{}>;
   memberDetails: any = {
     FullName: '',
     SearchName: '',
@@ -54,7 +55,7 @@ export class DefaultComponent implements OnInit {
   onInputFullname() {
     // Implement logic for FullName input change if needed
   }
-
+  submitForm(){}
   handleFileInput(files: FileList): void {}
 
   openImage(index: number): void {}
