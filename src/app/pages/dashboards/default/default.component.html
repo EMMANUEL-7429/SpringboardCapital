@@ -5,9 +5,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">Dashboard</li>
-                    <!-- <li class="breadcrumb-item">
-                    <a href="javascript: void(0);" routerLink="/member-account/create-account-list">View list</a>
-                    </li> -->
+
                 </ol>
             </div>
         </div>
@@ -24,8 +22,7 @@
                      <img [src]="imageSrc" *ngIf="imageSrc" height="200" width="350" alt="Selected Image"/>
                      <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
 
-                     <!-- <img class="w-100" src="assets/images/imagenotfound.png" height="250"/>
-                     <input class="mt-2" type="file"/> -->
+                    
                  </div>
                  <div class="col-12 mt-5">
                      <h4 style="color: orange"><i>USER PHOTO</i></h4> 
@@ -36,24 +33,24 @@
                  </div>
                <div class="col-lg-8">
                 
-                <div class="p-20">
+                <div class="p-20 " [formGroup]="dashboardForm">
                     <div class="row mb-0">
                         <div class="row">
                             <div class="col-sm-2 col-md-3">
                                 <label>No</label>
-                                <input type="text" class="form-control"  readonly>
+                                <input type="text" class="form-control" formControlName="employeeNo" readonly>
                             </div>
                             <div class="col-sm-2 col-md-3">
                                 <label>First Name</label>
-                                <input type="text" class="form-control"  readonly>
+                                <input type="text" class="form-control" readonly>
                             </div>
                             <div class="col-sm-2 col-md-3">
                                 <label>Middle Name</label>
                                 <input class="form-control" readonly>
                             </div>
-                            <div class="col-sm-2 col-md-3"readonly>
+                            <div class="col-sm-2 col-md-3" readonly>
                                 <label>Last Name</label>
-                                <input class="form-control"readonly>
+                                <input class="form-control" readonly>
                             </div>
                         </div>
                     </div>

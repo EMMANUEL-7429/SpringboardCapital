@@ -8,78 +8,60 @@
           </div>
           <div class="card-body pt-0">
             <div class="p-2">
-              <form class="form-horizontal" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-
-                <ngb-alert type="danger" *ngIf="error" [dismissible]="false">{{ error }}</ngb-alert>
-
-
-                <div class="mb-3">
-                  <label for="employeeNo">Employee No</label>
-                  <div class="input-group auth-pass-inputgroup">
-                    <input type="employeeNo" class="form-control" formControlName="employeeNo" placeholder="Enter EmployeeNo"
-                      [ngClass]="{ 'is-invalid': submitted && f.employeeNo.errors }" aria-label="employeeNo"
-                      aria-describedby="employeeNo-addon">
-
-                    <button class="btn btn-light ms-0" type="button" id="employeeNo-addon"><i
-                        class="mdi mdi-account-outline
-                        "></i></button>
-                    <div *ngIf="submitted && f.employeeNo.errors" class="invalid-feedback">
-                      <span *ngIf="f.employeeNo.errors.required">Employee No is required</span>
+              <div *ngIf="!isOtpStep">
+                <form class="form-horizontal" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <ngb-alert type="danger" *ngIf="error" [dismissible]="false">{{ error }}</ngb-alert>
+                  <div class="mb-3">
+                    <label for="email">Employee No</label>
+                    <div class="input-group auth-pass-inputgroup">
+                      <input type="email" class="form-control" formControlName="email" placeholder="Enter Employee No"
+                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" aria-label="email" aria-describedby="email-addon">
+                      <button class="btn btn-light ms-0" type="button" id="email-addon">
+                        <i class="mdi mdi-account-outline"></i>
+                      </button>
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <span *ngIf="f.email.errors.required">Employee No is required</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div class="mb-3">
-                  <label for="password">Password</label>
-                  <div class="input-group auth-pass-inputgroup">
-                    <input [type]="showPassword ? 'text' : 'password'" class="form-control" formControlName="password" placeholder="Enter password"
-                      [ngClass]="{ 'is-invalid': submitted && f.password.errors }" aria-label="Password"
-                      aria-describedby="password-addon">
-
-                    <button class="btn btn-light ms-0" type="button" id="password-addon" (click)="togglePasswordVisibility()">
-                      <i class="mdi" [ngClass]="showPassword ? 'mdi-eye-off-outline' : 'mdi-eye-outline'"></i>
-                    </button>
-                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                      <span *ngIf="f.password.errors.required">Password is required</span>
+                  <div class="mb-3">
+                    <label for="password">Password</label>
+                    <div class="input-group auth-pass-inputgroup">
+                      <input [type]="showPassword ? 'text' : 'password'" class="form-control" formControlName="password" placeholder="Enter password"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" aria-label="Password" aria-describedby="password-addon">
+                      <button class="btn btn-light ms-0" type="button" id="password-addon" (click)="togglePasswordVisibility()">
+                        <i class="mdi" [ngClass]="showPassword ? 'mdi-eye-off-outline' : 'mdi-eye-outline'"></i>
+                      </button>
+                      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <span *ngIf="f.password.errors.required">Password is required</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div class="mt-3 d-grid">
-                  <button class="btn btn-primary custom-blue-btn" id="sa-close" (click)="timer()" type="submit">Sign In</button>
-                </div>
-
-
-
-                <div class="row">
-                  <div class="col-md-6 mt-3">
-                    <button class="btn btn-secondary btn-md btn-block" type="button" style="width: 100%;" (click)="activateAccount()">
-                      <i class="mdi mdi-account-multiple text-link"></i> Activate Account
-                    </button>
+                  <div class="mt-3 d-grid">
+                    <button class="btn btn-primary custom-blue-btn" id="sa-close" type="submit">Sign In</button>
                   </div>
-
-                  <div class="col-md-6 mt-3">
-                    <button class="btn btn-secondary btn-md btn-block" type="button" style="width: 100%;">
-                      <i class="mdi dripicons-lock-open text-link" style=" margin-right: 2px;"></i>
-                      <span style="line-height: 24px;">Forgot Password?</span>
-                    </button>
+                </form>
+              </div>
+              
+              <div *ngIf="isOtpStep">
+                <form class="form-horizontal" [formGroup]="otpForm" (ngSubmit)="onSubmit()">
+                  <ngb-alert type="danger" *ngIf="error" [dismissible]="false">{{ error }}</ngb-alert>
+                  <div class="mb-3">
+                    <label for="otp">Enter OTP</label>
+                    <div class="input-group auth-pass-inputgroup">
+                      <input type="text" class="form-control" formControlName="otp" placeholder="Enter OTP"
+                        [ngClass]="{ 'is-invalid': submitted && o.otp.errors }" aria-label="otp" aria-describedby="otp-addon">
+                      <div *ngIf="submitted && o.otp.errors" class="invalid-feedback">
+                        <span *ngIf="o.otp.errors.required">OTP is required</span>
+                      </div>
+                    </div>
                   </div>
-
-                </div>
-
-
-                <div class="mt-4 text-center">
-                  <h5 class="font-size-14 mb-3" style="text-decoration: underline; font-style: italic;">Today's security tips</h5>
-                </div>
-
-                <div class="mt-4 text-center">
-                  <p> Keep your account safe by using strong passwords. Do not write your password down. Do not share OTPs with anyone.</p>
-                </div>
-                <div class="mt-4 text-center">
-                  <p class="text-danger">Report any suspicious activities to: info@springboardcapital.co.ke / +254701346189</p>
-                </div>
-
-              </form>
+                  <div class="mt-3 d-grid">
+                    <button class="btn btn-primary custom-blue-btn" id="sa-close" type="submit">Verify OTP</button>
+                  </div>
+                </form>
+              </div>
+              
             </div>
 
           </div>

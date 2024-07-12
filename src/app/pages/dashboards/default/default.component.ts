@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
-
-
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ConfigService } from '../../../core/services/config.service';
 
 @Component({
@@ -13,8 +11,8 @@ export class DefaultComponent implements OnInit {
   imageSrc: string | ArrayBuffer = "assets/images/imagenotfound.png";
   imageSrc2: string | ArrayBuffer = "assets/images/imagenotfound.png";
   currentTab: number = 0;
-  _album: any[] = [];
-  isValid:boolean=true;
+  isValid: boolean = true;
+  dashboard: FormGroup;
   memberDetails: any = {
     FullName: '',
     SearchName: '',
@@ -34,12 +32,18 @@ export class DefaultComponent implements OnInit {
     CompanyCertificateNo: ''
   };
   @ViewChild('content') content;
-  constructor() {
+  dashboardForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    const employeeNo = localStorage.getItem('employeeNo');
+    this.dashboardForm = this.fb.group({
+      employeeNo: [employeeNo]
+    });
   }
 
-  ngOnInit() {}
-  successmsg(){}
-  //handleFileInput(file:FileList){}
+  successmsg() {}
   downloadPassport() {
     // Implement download logic for passport photo
   }
@@ -51,16 +55,9 @@ export class DefaultComponent implements OnInit {
     // Implement logic for FullName input change if needed
   }
 
- 
-  
-  handleFileInput(files: FileList): void {
-    
-  }
+  handleFileInput(files: FileList): void {}
 
-  openImage(index: number): void {
-    
-  }
-  
+  openImage(index: number): void {}
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -70,17 +67,14 @@ export class DefaultComponent implements OnInit {
       const reader = new FileReader();
 
       reader.onload = () => {
-        this.imageSrc2= reader.result;
-        
+        this.imageSrc2 = reader.result;
       };
 
       reader.readAsDataURL(file);
     }
   }
+
   nextPrev(step: number) {
     this.currentTab += step;
-   
+  }
 }
-}
-
-  
