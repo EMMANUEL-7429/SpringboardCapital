@@ -8,8 +8,12 @@ import { ConfigService } from '../../../core/services/config.service';
   styleUrls: ['./default.component.scss']
 })
 export class DefaultComponent implements OnInit {
+  imageSrc1: string | ArrayBuffer | null = null;
+  imageSrc2: string | ArrayBuffer | null = null;
+  imageSrc3: string | ArrayBuffer | null = null;
+  imageSrc4: string | ArrayBuffer | null = null;
   imageSrc: string | ArrayBuffer = "assets/images/imagenotfound.png";
-  imageSrc2: string | ArrayBuffer = "assets/images/imagenotfound.png";
+ // imageSrc2: string | ArrayBuffer = "assets/images/imagenotfound.png";
   currentTab: number = 0;
   isValid: boolean = true;
   dashboard: FormGroup;
@@ -78,4 +82,5 @@ export class DefaultComponent implements OnInit {
   nextPrev(step: number) {
     this.currentTab += step;
   }
+ 
 }

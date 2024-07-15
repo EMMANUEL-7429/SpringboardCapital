@@ -1,285 +1,292 @@
-<div class="row">
-    <div class="col-12">
-        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0 font-size-18">My Profile</h4>
-            <div class="page-title-right">
-                <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item">Dashboard</li>
-
-                </ol>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    
-    <div class="col-lg-12 col-md-12 col-sm-12">
+<div class="container-fluid">
+    <app-page-title title="" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  
+    <div class="row">
+      <div class="col-lg-12">
         <div class="card">
-            <div class="row card-body">
-                <div class="col-lg-4">
-                    <div class="col-12">
-                     <h4 style="color:orange"><i>USER PHOTO</i></h4> 
-                     <img [src]="imageSrc" *ngIf="imageSrc" height="200" width="350" alt="Selected Image"/>
-                     <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
-
+          <div class="card-body">
+            <h4 class="card-title mb-4">My Profile</h4>
+            <aw-wizard [navBarLayout]="'large-empty-symbols'">
+              <aw-wizard-step>
+                <ng-template awWizardStepSymbol>
+                  <i class="fas fa-user"></i>
+                </ng-template>
+                <div class="row">
+                 
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="col-12">
+                                <h4 style="color:orange"><i>USER PHOTO</i></h4>
+                                <img [src]="imageSrc" *ngIf="imageSrc" height="270" width="350" alt="Selected Image"/>
+                                <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="p-20" [formGroup]="dashboardForm">
+                                <div class="row mb-0">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label>No</label>
+                                            <input type="text" class="form-control" formControlName="employeeNo" readonly>
+                                        </div>
+                                        <div class="col-sm-4 ">
+                                            <label>First Name</label>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Middle Name</label>
+                                            <input class="form-control" readonly>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="row mb-0">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label>Last Name</label>
+                                            <input class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>ID Number</label>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Passport Number</label>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
+                                       
+                                        
+                                    </div>
+                                </div>
+                                <div class="row mb-0">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label>Date of Birth</label>
+                                            <input class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Gender</label>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Marital Ststus</label>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>                          
+                                    </div>
+                                </div>
+                                <div class="row mb-0">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label>Citizenship</label>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Supervisor Code</label>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Supervisor Name</label>
+                                            <input class="form-control"readonly>
+                                        </div>             
+                                    </div>
+                                </div>
+                                <div class="row mb-0">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label>Supervisor Title</label>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>HOD</label>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>HOD Name</label>
+                                            <input class="form-control"readonly>
+                                        </div>           
+                                    </div>
+                                </div>
+                                <div class="row mb-0">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label>HOD Title</label>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Employee Category</label>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Date of Join</label>
+                                            <input class="form-control"readonly>
+                                        </div>           
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
-                 </div>
-                 <div class="col-12 mt-5">
-                     <h4 style="color: orange"><i>USER PHOTO</i></h4> 
-                     <img [src]="imageSrc" *ngIf="imageSrc" height="200" width="350" alt="Selected Image"/>
-                     <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
-                 </div>
-                 <button type="button" class="btn btn-dark mt-2" style="width:23vw;">Downloads(0)</button>
-                 </div>
-               <div class="col-lg-8">
+                </div>
                 
-                <div class="p-20 " [formGroup]="dashboardForm">
-                    <div class="row mb-0">
-                        <div class="row">
-                            <div class="col-sm-2 col-md-3">
-                                <label>No</label>
-                                <input type="text" class="form-control" formControlName="employeeNo" readonly>
+                <ul class="list-inline wizard mb-0">
+                  <li class="next list-inline-item float-end"><button class="btn btn-primary" awNextStep>Next</button>
+                  </li>
+                </ul>
+              </aw-wizard-step>
+  
+              <aw-wizard-step>
+                <ng-template awWizardStepSymbol>
+                  <i class="fas fa-user-circle"></i>
+                </ng-template>
+                <div class="row">
+                 
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="col-12">
+                                <h4 style="color:orange"><i>USER PHOTO</i></h4>
+                                <img [src]="imageSrc" *ngIf="imageSrc" height="270" width="350" alt="Selected Image"/>
+                                <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
                             </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>First Name</label>
-                                <input type="text" class="form-control" readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>Middle Name</label>
-                                <input class="form-control" readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3" readonly>
-                                <label>Last Name</label>
-                                <input class="form-control" readonly>
-                            </div>
+                            <button type="button" class="btn btn-dark mt-2" style="width:23vw;">Downloads(0)</button>
+                            <ul class="list-inline wizard mt-5">
+                                <li class="previous list-inline-item"><button class="btn btn-primary" awPreviousStep>Previous</button>
+                                </li>
+                                
+                              </ul>
                         </div>
-                    </div>
-                </div>
-                <div class="p-0">
-                    <div class="row mb-0">
-                        <div class="row">
-                            <div class="col-sm-2 col-md-3">
-                                <label>ID Number</label>
-                                <input type="text" class="form-control" readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>Passport Number</label>
-                                <input type="text" class="form-control" readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>Date of Birth</label>
-                                <input class="form-control" readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3"readonly>
-                                <label>Gender</label>
-                                <input class="form-control"readonly>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-0">
-                    <div class="row mb-0">
-                        <div class="row">
-                            <div class="col-sm-2 col-md-3">
-                                <label>Marital Status</label>
-                                <input type="text" class="form-control" readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>CitizenShip</label>
-                                <input type="text" class="form-control" readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>Supervisor Code</label>
-                                <input class="form-control" readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>Supervisor Name</label>
-                                <input class="form-control" readonly>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-0">
-                    <div class="row mb-0">
-                        <div class="row">
-                            <div class="col-sm-2 col-md-3">
-                                <label>Supervisor Title</label>
-                                <input type="text" class="form-control" readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>HOD</label>
-                                <input type="text" class="form-control" readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>HOD Name</label>
-                                <input class="form-control"readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>HOD Title</label>
-                                <input class="form-control"readonly>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-0">
-                    <div class="row mb-0">
-                        <div class="row">
-                            <div class="col-sm-2 col-md-3">
-                                <label>Employee Category</label>
-                                <input type="text" class="form-control" readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>Date of Join</label>
-                                <input type="text" class="form-control" readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>Contract Type</label>
-                                <input class="form-control"readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>Job ID</label>
-                                <input class="form-control"readonly>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-0">
-                    <div class="row mb-0">
-                        <div class="row">
-                            <div class="col-sm-2 col-md-3">
-                                <label>Job Title</label>
-                                <input type="text" class="form-control" readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>Pin Number</label>
-                                <input type="text" class="form-control" readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3"readonly>
-                                <label>NSSF Number</label>
-                                <input class="form-control"readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3"readonly>
-                                <label>NHIF Number</label>
-                                <input class="form-control"readonly>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-0">
-                    <div class="row mb-0">
-                        <div class="row">
-                            <div class="col-sm-2 col-md-3">
-                                <label>Home Phone Number</label>
-                                <input type="text" class="form-control" readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>Email</label>
-                                <input type="text" class="form-control" readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>Company Email</label>
-                                <input class="form-control"readonly>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <label>Leave Balance</label>
-                                <input class="form-control"readonly>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-0">
-                    <div class="row mb-0">
-                        <div class="row mt-3">
-                            <div class="col-sm-2 col-md-3">
-                                <button type="button" class="btn btn-warning w-100">Next of Kin(0)</button>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <button type="button" class="btn btn-primary w-100">Qualifications(0)</button>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <button type="button" class="btn btn-info w-100">Membership(0)</button>
-                            </div>
-                            <div class="col-sm-2 col-md-3">
-                                <button type="button" class="btn btn-success w-100">Asset Allocation(0)</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-0">
-                    <div class="row mt-3">
-                        <div class="col-sm-6 col-md-3">
-                            <div class="card mb-3 text-center">
-                                <div style="width: 100px; height: 100px; cursor: pointer; opacity: 0;" accept="image/*" (change)="handleFileInput($event.target.files)"
-                                    class="card-text text-danger" style="font-style: italic;">
-                                    FRONT ID PHOTO
-                                   
-                                    
-                                        <img [src]="imageSrc2" *ngIf="imageSrc2" width="200" height="150" alt="Selected Image"/>
-                                        <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
-                                  
+                        <div class="col-lg-8">
+                            <div class="p-20" [formGroup]="dashboardForm">
+                                <div class="row mb-0">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label>Contract type</label>
+                                            <input type="text" class="form-control" formControlName="employeeNo" readonly>
+                                        </div>
+                                        <div class="col-sm-4 ">
+                                            <label>Job ID</label>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Job Title</label>
+                                            <input class="form-control" readonly>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="row mb-0">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label>Pin Number</label>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label> NSSF Number</label>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>NHIF Number</label>
+                                            <input class="form-control" readonly>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="row mb-0">
+                                    <div class="row">
+                                        <div class="col-sm-2 col-md-3">
+                                            <label>Home Phone Number</label>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-2 col-md-3">
+                                            <label>Email</label>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-2 col-md-3">
+                                            <label>Company Email</label>
+                                            <input class="form-control"readonly>
+                                        </div>
+                                        <div class="col-sm-2 col-md-3">
+                                            <label>Leave Balance</label>
+                                            <input class="form-control"readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-0">
+                                    <div class="row mb-0">
+                                        <div class="row mt-3">
+                                            <div class="col-sm-2 col-md-3">
+                                                <button type="button" class="btn btn-warning w-100">Next of Kin(0)</button>
+                                            </div>
+                                            <div class="col-sm-2 col-md-3">
+                                                <button type="button" class="btn btn-primary w-100">Qualifications(0)</button>
+                                            </div>
+                                            <div class="col-sm-2 col-md-3">
+                                                <button type="button" class="btn btn-info w-100">Membership(0)</button>
+                                            </div>
+                                            <div class="col-sm-2 col-md-3">
+                                                <button type="button" class="btn btn-success w-100">Asset Allocation(0)</button>
+                                            </div>
+                                        </div>
+                                        <div class="p-0">
+                                            <div class="row mt-3">
+                                                <div class="col-sm-6 col-md-3">
+                                                    <div class="card mb-3 text-center">
+                                                        <div class="card-body">
+                                                            <div style="cursor: pointer;" accept="image/*">
+                                                                <h5 class="card-text text-danger" style="font-style: italic;">FRONT ID PHOTO</h5>
+                                                                <img [src]="imageSrc1" *ngIf="imageSrc1" width="200" height="150" alt="Selected Image"/>
+                                                                <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-3">
+                                                    <div class="card mb-3 text-center">
+                                                        <div class="card-body">
+                                                            <div style="cursor: pointer;" accept="image/*">
+                                                                <h5 class="card-text text-danger" style="font-style: italic;">BACK ID PHOTO</h5>
+                                                                <img [src]="imageSrc2" *ngIf="imageSrc2" width="200" height="150" alt="Selected Image"/>
+                                                                <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-3">
+                                                    <div class="card mb-3 text-center">
+                                                        <div class="card-body">
+                                                            <div style="cursor: pointer;" accept="image/*">
+                                                                <h5 class="card-text text-danger" style="font-style: italic;">SIGNATURE PHOTO</h5>
+                                                                <img [src]="imageSrc3" *ngIf="imageSrc3" width="200" height="150" alt="Selected Image"/>
+                                                                <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-3">
+                                                    <div class="card mb-3 text-center">
+                                                        <div class="card-body">
+                                                            <div style="cursor: pointer;" accept="image/*">
+                                                                <h5 class="card-text text-danger" style="font-style: italic;">KRA-PIN PHOTO</h5>
+                                                                <img [src]="imageSrc4" *ngIf="imageSrc4" width="200" height="150" alt="Selected Image"/>
+                                                                <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
                                 </div>
                                 
                             </div>
-                            
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="card mb-3 text-center">
-                                <div style="width: 100px; height: 100px; cursor: pointer; opacity: 0;" accept="image/*" (change)="handleFileInput($event.target.files)"
-                                    class="card-text text-danger" style="font-style: italic;">
-                                    BACK ID PHOTO
-                                   
-                                    
-                                        <img [src]="imageSrc2" *ngIf="imageSrc2" width="200" height="150" alt="Selected Image"/>
-                                        <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
-                                  
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="card mb-3 text-center">
-                                <div style="width: 100px; height: 100px; cursor: pointer; opacity: 0;" accept="image/*" (change)="handleFileInput($event.target.files)"
-                                    class="card-text text-danger" style="font-style: italic;">
-                                    SIGNATURE PHOTO
-                                   
-                                    
-                                        <img [src]="imageSrc2" *ngIf="imageSrc2" width="200" height="150" alt="Selected Image"/>
-                                        <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
-                                  
-                                </div>
-                                
-                               
-                               
-                            </div>
-                            
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="card mb-3 text-center">
-                                <div style="width: 100px; height: 100px; cursor: pointer; opacity: 0;" accept="image/*" (change)="handleFileInput($event.target.files)"
-                                    class="card-text text-danger" style="font-style: italic;">
-                                    KRA-PIN PHOTO
-                                   
-                                    
-                                        <img [src]="imageSrc2" *ngIf="imageSrc2" width="200" height="150" alt="Selected Image"/>
-                                        <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
-                                  
-                                </div>
-                                
-                                
-                            </div>
-                            
-                        </div>
-                
-                        
-                    </div>
+                        </div> 
+                    </div>        
                 </div>
-               </div>
-                
-                
-                
-                
-                
-            </div>
+              </aw-wizard-step>
+            </aw-wizard>
+          </div>
         </div>
+      </div>
+      
     </div>
-</div>
+  </div>
