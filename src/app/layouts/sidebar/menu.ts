@@ -69,10 +69,14 @@ export const MENU: MenuItem[] = [
         label: 'LEAVE APPLICATION',
         icon: 'bx-file',
         link: '/leaveapplication',
-        // badge: {
-        //     variant: 'success',
-        //     text: 'LEAVE APPLICATION',
-        // },
+        
+    },
+    {
+        id: 11,
+        label: 'Pay Slip',
+        icon: 'bx-file',
+        link: '/leaveapplication',
+        
     },
     {
         id: 12,

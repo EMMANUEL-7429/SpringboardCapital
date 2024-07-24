@@ -115,4 +115,7 @@ export class LoginComponent implements OnInit {
   activateAccount() {
     this.router.navigate(['/account/login-2']);
   }
+  signIn(){
+    this.router.navigate['/account/reset-password']
+  }
 }
