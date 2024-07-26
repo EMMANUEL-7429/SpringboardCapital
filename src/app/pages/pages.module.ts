@@ -41,6 +41,7 @@ import { LeaveApplicationComponent } from './LeaveApplication/leaveapplication.c
 //import { P9Component } from './p9/p9.component';
 //import { PayslipComponent } from './pay-slip/pay-slip.component';
 import { LeaveApprovalComponent } from './leave-approval/leave-approval.component';
+import { P9Component } from './p9/p9.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -49,7 +50,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
 ]);
 
 @NgModule({
-  declarations: [CalendarComponent, ChatComponent, LeaveApplicationComponent, LeaveApprovalComponent],
+  declarations: [CalendarComponent, ChatComponent, LeaveApplicationComponent, LeaveApprovalComponent, P9Component],
   imports: [
     CommonModule,
     FormsModule,

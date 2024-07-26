@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { CalendarComponent } from './calendar/calendar.component';
@@ -8,16 +8,18 @@ import { LeaveApplicationComponent } from './LeaveApplication/leaveapplication.c
 //import { PayslipComponent } from './pay-slip/pay-slip.component';
 //import { P9Component } from './p9/p9.component';
 import { LeaveApprovalComponent } from './leave-approval/leave-approval.component';
+import { P9Component } from './p9/p9.component';
+import { PayslipComponent } from './pay-slip/pay-slip.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard' },
- 
+
   { path: 'dashboard', component: DefaultComponent },
   { path: 'calendar', component: CalendarComponent },
   { path: 'chat', component: ChatComponent },
   { path: 'leaveapplication', component: LeaveApplicationComponent },
- // { path:'payslip', component: PayslipComponent },
-//{ path:'p9', component: P9Component },
+  { path:'payslip', component: PayslipComponent },
+  { path:'p9', component: P9Component },
   { path:'approval', component: LeaveApprovalComponent },
   { path: 'dashboards', loadChildren: () => import('./dashboards/dashboards.module').then(m => m.DashboardsModule) },
   { path: 'ecommerce', loadChildren: () => import('./ecommerce/ecommerce.module').then(m => m.EcommerceModule) },
@@ -35,7 +37,7 @@ const routes: Routes = [
   { path: 'icons', loadChildren: () => import('./icons/icons.module').then(m => m.IconsModule) },
   { path: 'charts', loadChildren: () => import('./chart/chart.module').then(m => m.ChartModule) },
   { path: 'maps', loadChildren: () => import('./maps/maps.module').then(m => m.MapsModule) },
-  
+
 ];
 
 @NgModule({

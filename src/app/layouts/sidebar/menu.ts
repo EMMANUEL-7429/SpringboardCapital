@@ -1,7 +1,7 @@
 import { MenuItem } from './menu.model';
 
 export const MENU: MenuItem[] = [
-    {
+   /* {
         id: 1,
         label: 'MENUITEMS.MENU.TEXT',
         isTitle: true
@@ -39,7 +39,7 @@ export const MENU: MenuItem[] = [
                 link: '/dashboards/blog',
                 parentId: 2
             },
-            
+
         ]
     },
     {
@@ -62,23 +62,45 @@ export const MENU: MenuItem[] = [
         label: 'MENUITEMS.CHAT.TEXT',
         icon: 'bx-chat',
         link: '/chat',
-        
-    },
+
+    },*/
+    {
+      id: 11,
+      label: 'Dashboard',
+      icon: 'bx-file',
+      link: '/default',
+
+  },
     {
         id: 11,
-        label: 'LEAVE APPLICATION',
+        label: 'Leave Application',
         icon: 'bx-file',
         link: '/leaveapplication',
-        
+
     },
     {
-        id: 11,
-        label: 'Pay Slip',
+      id: 130,
+      label: 'Pay Slip',
+      icon: 'bx-file',
+      link: '/payslip',
+
+  },
+    {
+        id: 140,
+        label: 'P9',
         icon: 'bx-file',
-        link: '/leaveapplication',
-        
+        link: '/p9',
+
     },
     {
+      id: 141,
+      label: 'Approval Entries',
+      icon: 'bx-file',
+      link: '/approval',
+
+  },
+]
+ /*   {
         id: 12,
         label: 'MENUITEMS.ECOMMERCE.TEXT',
         icon: 'bx-store',
@@ -212,19 +234,19 @@ export const MENU: MenuItem[] = [
                         id:33 ,
                         label: 'MENUITEMS.EMAIL.LIST.TEMPLATE.LIST.BASIC',
                         link: '/email/basic',
-                        parentId:32 
+                        parentId:32
                     },
                     {
                         id:34 ,
                         label: 'MENUITEMS.EMAIL.LIST.TEMPLATE.LIST.ALERT',
                         link: '/email/alert',
-                        parentId:32 
+                        parentId:32
                     },
                     {
                         id:35 ,
                         label: 'MENUITEMS.EMAIL.LIST.TEMPLATE.LIST.BILLING',
                         link: '/email/billing',
-                        parentId:32 
+                        parentId:32
                     }
                 ]
             }
@@ -836,4 +858,5 @@ export const MENU: MenuItem[] = [
         ]
     }
 ];
+*/
 

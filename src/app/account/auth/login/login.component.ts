@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   hardcodedPassword = '123456';
   hardcodedOtp = '2022';
 
-  
+
 
   year: number = new Date().getFullYear();
 
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       email: [this.hardcodedEmail, [Validators.required]],
       password: [this.hardcodedPassword, [Validators.required]],
-      
+
     });
 
     this.otpForm = this.formBuilder.group({
@@ -68,9 +68,24 @@ export class LoginComponent implements OnInit {
       } else {
         if (this.otpForm.value.otp === this.hardcodedOtp) {
           localStorage.setItem('employeeNo', this.hardcodedEmail); // Store employee number in localStorage
+          Swal.fire({
+            icon:'success',
+            title:'Login Successful',
+            text: 'Success',
+            timer: 2000,
+            timerProgressBar: true,
+            showCloseButton:false
+          });
           this.router.navigate(['/dashboard']);
         } else {
-          this.error = 'Invalid OTP';
+          Swal.fire({
+            icon:'error',
+            title:'Invalid employee number or password',
+            text: 'Retry',
+            timer: 2000,
+            timerProgressBar: true,
+            showCloseButton:false
+          });
         }
       }
     } else {
@@ -81,6 +96,14 @@ export class LoginComponent implements OnInit {
           this.isOtpStep = true;
         } else {
           this.error = 'Invalid employee number or password';
+          Swal.fire({
+            icon:'error',
+            title:'Invalid employee number or password',
+            text: 'Retry',
+            timer: 3000,
+            timerProgressBar: true,
+            showCloseButton:false
+          });
         }
       }
     }
