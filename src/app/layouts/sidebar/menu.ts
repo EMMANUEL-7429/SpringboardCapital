@@ -67,7 +67,7 @@ export const MENU: MenuItem[] = [
     {
       id: 11,
       label: 'Dashboard',
-      icon: 'bx-file',
+      icon: 'bx-home',
       link: '/default',
 
   },
@@ -81,14 +81,14 @@ export const MENU: MenuItem[] = [
     {
       id: 130,
       label: 'Pay Slip',
-      icon: 'bx-file',
+      icon: 'bx-store',
       link: '/payslip',
 
   },
     {
         id: 140,
         label: 'P9',
-        icon: 'bx-file',
+        icon: 'bx-calendar',
         link: '/p9',
 
     },

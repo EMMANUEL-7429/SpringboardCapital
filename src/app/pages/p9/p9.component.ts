@@ -27,7 +27,7 @@ import Swal from 'sweetalert2';
 export class P9Component implements OnInit {
   IsNodeLoading: boolean=false;
   years: number[] = [];
-  selectedYear: number;
+  selectedYear: number | undefined;
   excelFormat: boolean = false;
 
   // breadcrumb items
