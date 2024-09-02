@@ -34,7 +34,7 @@ const routes: Routes = [
         path: 'login-2',
         component: Login2Component
     },
-    { path: '', redirectTo: '/login', pathMatch: 'full' } 
+   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' } 
 ];
 
 @NgModule({

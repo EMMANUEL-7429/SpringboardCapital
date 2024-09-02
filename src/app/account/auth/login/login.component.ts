@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
   isOtpStep = false;
 
   // Hardcoded credentials and OTP
-  hardcodedEmail = '7429';
+  hardcodedEmployeeNo = '7429';
   hardcodedPassword = '123456';
   hardcodedOtp = '2022';
 
@@ -40,7 +41,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: [this.hardcodedEmail, [Validators.required]],
+      email: [this.hardcodedEmployeeNo, [Validators.required]],
       password: [this.hardcodedPassword, [Validators.required]],
 
     });
@@ -58,86 +59,85 @@ export class LoginComponent implements OnInit {
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
+  // onSubmit(){}
 
   onSubmit() {
     this.submitted = true;
-
+    this.error = ''; // Reset error message
+  
     if (this.isOtpStep) {
       if (this.otpForm.invalid) {
         return;
+      }
+      if (this.otpForm.value.otp === this.hardcodedOtp) {
+        localStorage.setItem('employeeNo', this.hardcodedEmployeeNo);
+        this.router.navigate(['/dashboard']);
       } else {
-        if (this.otpForm.value.otp === this.hardcodedOtp) {
-          localStorage.setItem('employeeNo', this.hardcodedEmail); // Store employee number in localStorage
-          Swal.fire({
-            icon:'success',
-            title:'Login Successful',
-            text: 'Success',
-            timer: 2000,
-            timerProgressBar: true,
-            showCloseButton:false
-          });
-          this.router.navigate(['/dashboard']);
-        } else {
-          Swal.fire({
-            icon:'error',
-            title:'Invalid employee number or password',
-            text: 'Retry',
-            timer: 2000,
-            timerProgressBar: true,
-            showCloseButton:false
-          });
-        }
+        this.error = 'Invalid OTP';
       }
     } else {
       if (this.loginForm.invalid) {
         return;
+      }
+      if (this.f.email.value === this.hardcodedEmployeeNo && this.f.password.value === this.hardcodedPassword) {
+        this.isOtpStep = true; // Proceed to OTP step
+        this.submitted = false; // Reset submission status for OTP step
       } else {
-        if (this.f.email.value === this.hardcodedEmail && this.f.password.value === this.hardcodedPassword) {
-          this.isOtpStep = true;
-        } else {
-          this.error = 'Invalid employee number or password';
-          Swal.fire({
-            icon:'error',
-            title:'Invalid employee number or password',
-            text: 'Retry',
-            timer: 3000,
-            timerProgressBar: true,
-            showCloseButton:false
-          });
-        }
+        this.error = 'Invalid employee number or password';
       }
     }
   }
+  
 
-  timer() {
-    let timerInterval;
-    Swal.fire({
-      timer: 1000,
-      didOpen: () => {
-        Swal.showLoading();
-        timerInterval = setInterval(() => {
-          const content = Swal.getHtmlContainer();
-          if (content) {
-            const b = content.querySelector('b');
-            if (b) {
-              b.textContent = Swal.getTimerLeft() + '';
-            }
-          }
-        }, 0);
-      },
-      willClose: () => {
-        clearInterval(timerInterval);
-      }
-    }).then((result) => {
-      if (result.dismiss === Swal.DismissReason.timer) {
-        console.log('I was closed by the timer');
-      }
-    });
-  }
+  // timer() {
+  //   let timerInterval;
+  //   Swal.fire({
+  //     timer: 1000,
+  //     didOpen: () => {
+  //       Swal.showLoading();
+  //       timerInterval = setInterval(() => {
+  //         const content = Swal.getHtmlContainer();
+  //         if (content) {
+  //           const b = content.querySelector('b');
+  //           if (b) {
+  //             b.textContent = Swal.getTimerLeft() + '';
+  //           }
+  //         }
+  //       }, 0);
+  //     },
+  //     willClose: () => {
+  //       clearInterval(timerInterval);
+  //     }
+  //   }).then((result) => {
+  //     if (result.dismiss === Swal.DismissReason.timer) {
+  //       console.log('I was closed by the timer');
+  //     }
+  //   });
+  // }
+  timer(){}
 
   activateAccount() {
     this.router.navigate(['/account/login-2']);
   }
+  verifyOtp() {
+    this.submitted = true;
+  
+    if (this.otpForm.invalid) {
+      return;
+    } else {
+      if (this.otpForm.value.otp === this.hardcodedOtp) {
+        console.log(this.otpForm.value.otp)
+       // localStorage.setItem('employeeNo', this.hardcodedEmployeeNo); // Store employee number in localStorage
+        this.router.navigate(['/dashboard']); // Navigate to dashboard
+       // console.log("redirecting...")
+        //this.router.navigate(['']);
+      } else {
+        console.log("routing failed")
+        this.error = 'Invalid OTP'; // Show an error if OTP is incorrect
+      }
+    }
+  }
+  
  /* signIn(){
     this.router.navigate['/account/reset-password']
   } */

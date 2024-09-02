@@ -1,15 +1,20 @@
-<div class="container-fluid mt-5">
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-12">
+          <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+              <h4 class="mb-sm-0 font-size-18">Payslip</h4>
+          </div>
+      </div>
+  </div>
   <div class="row justify-content-start">
     <div class="col-6">
       <div class="card">
-        <div class="card-header">
-          Payslip
-        </div>
         <div class="card-body">
+          <h4 class="card-title">Payslip</h4>
           <!-- Form to generate Payslip -->
           <form (ngSubmit)="generatePayslip()">
             <!-- Period Selection -->
-            <div class="form-group position-relative">
+            <div class="col-sm-12">
               <label for="period">Period *</label>
               <!--              <select id="period" class="form-control custom-select pl-2" [(ngModel)]="selectedPeriod" name="period" required> -->
               <select id="period" class="form-control custom-select pl-2" name="period" required>
@@ -22,14 +27,15 @@
             </div>
 
             <!-- Checkbox for Excel Format -->
-            <div class="form-check">
+            <div class="col-sm-12">
               <!--              <input type="checkbox" class="form-check-input" id="excelFormat" [(ngModel)]="excelFormat" name="excelFormat">              -->
               <input type="checkbox" class="form-check-input" id="excelFormat"  name="excelFormat">
               <label class="form-check-label" for="excelFormat">Excel Format</label>
             </div>
 
             <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary mt-3">Generate Payslip</button>
+            <button type="submit" class="btn btn-primary mt-3" (click)="generatePayslip()">Generate Payslip</button>
+
           </form>
         </div>
       </div>

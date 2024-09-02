@@ -74,14 +74,14 @@ export const MENU: MenuItem[] = [
     {
         id: 11,
         label: 'Leave Application',
-        icon: 'bx-file',
+        icon: 'bx-book',
         link: '/leaveapplication',
 
     },
     {
       id: 130,
       label: 'Pay Slip',
-      icon: 'bx-store',
+      icon: 'bx-briefcase',
       link: '/payslip',
 
   },
@@ -95,7 +95,7 @@ export const MENU: MenuItem[] = [
     {
       id: 141,
       label: 'Approval Entries',
-      icon: 'bx-file',
+      icon: 'bx-like',
       link: '/approval',
 
   },

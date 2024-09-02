@@ -7,7 +7,9 @@ import { NgModule } from '@angular/compiler/src/core';
   styleUrls: ['./pay-slip.component.scss']
 })
 export class PayslipComponent {
+  IsNodeLoading: boolean=false;
   selectedPeriod: string = '';
+  //excelFormat: boolean = false;
   excelFormat: boolean = false;
 
   constructor() {}
@@ -25,4 +27,5 @@ export class PayslipComponent {
       console.log('Please select a period.');
     }
   }
+  
 }

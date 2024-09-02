@@ -10,9 +10,11 @@ import { ConfigService } from '../../../core/services/config.service';
 export class DefaultComponent implements OnInit {
   imageSrc1: string | ArrayBuffer | null = null;
   imageSrc2: string | ArrayBuffer | null = null;
-  imageSrc3: string | ArrayBuffer | null = null;
+ imageSrc3: string | ArrayBuffer | null = null;
   imageSrc4: string | ArrayBuffer | null = null;
-  imageSrc: string | ArrayBuffer = "assets/images/imagenotfound.png";
+  imageSrc5: string |ArrayBuffer |null=null;
+  imageSrc6: string |ArrayBuffer |null=null;
+ imageSrc: string | ArrayBuffer = "assets/images/imagenotfound.png";
  // imageSrc2: string | ArrayBuffer = "assets/images/imagenotfound.png";
   currentTab: number = 0;
   isValid: boolean = true;
@@ -64,21 +66,46 @@ export class DefaultComponent implements OnInit {
 
   openImage(index: number): void {}
 
-  onFileSelected(event: Event): void {
+  onFileSelected(event: Event, imageIndex: number): void {
+    console.log('File selected for image index:', imageIndex);
     const input = event.target as HTMLInputElement;
-
+  
     if (input.files && input.files[0]) {
       const file = input.files[0];
       const reader = new FileReader();
-
+  
       reader.onload = () => {
-        this.imageSrc2 = reader.result;
+        console.log('File loaded successfully, result:', reader.result);
+        switch (imageIndex) {
+          case 1:
+            this.imageSrc1 = reader.result;
+            break;
+          case 2:
+            this.imageSrc2 = reader.result;
+            break;
+          case 3:
+            this.imageSrc3 = reader.result;
+            break;
+          case 4:
+            this.imageSrc4 = reader.result;
+            break;
+            case 5:
+            this.imageSrc5 = reader.result;
+            break;
+            case 6:
+            this.imageSrc6 = reader.result;
+            break;
+          default:
+            this.imageSrc = reader.result;
+        }
       };
-
+  
       reader.readAsDataURL(file);
+    } else {
+      console.log('No file selected');
     }
   }
-
+  
   nextPrev(step: number) {
     this.currentTab += step;
   }

@@ -17,8 +17,8 @@
                         <div class="col-lg-4">
                             <div class="col-12">
                                 <h4 style="color:orange"><i>USER PHOTO</i></h4>
-                                <img [src]="imageSrc" *ngIf="imageSrc" height="270" width="350" alt="Selected Image"/>
-                                <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
+                                <img [src]="imageSrc5" alt="Image 5" *ngIf="imageSrc5" height="270" width="350" alt="Selected Image"/>
+                                <input class="mt-2" type="file" (change)="onFileSelected($event,5)"/>
                             </div>
                         </div>
                         <div class="col-lg-8">
@@ -143,9 +143,9 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="col-12">
-                                <h4 style="color:orange"><i>USER PHOTO</i></h4>
-                                <img [src]="imageSrc" *ngIf="imageSrc" height="270" width="350" alt="Selected Image"/>
-                                <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
+                                <h4 style="color:orange"><i>National ID</i></h4>
+                                <img [src]="imageSrc6"alt="Image 6" *ngIf="imageSrc6" height="270" width="350" alt="Selected Image"/>
+                                <input class="mt-2" type="file" (change)="onFileSelected($event,6)"/>
                             </div>
                             <button type="button" class="btn btn-dark mt-2" style="width:23vw;">Downloads(0)</button>
                             <ul class="list-inline wizard mt-5">
@@ -233,8 +233,8 @@
                                                         <div class="card-body">
                                                             <div style="cursor: pointer;" accept="image/*">
                                                                 <h5 class="card-text text-danger" style="font-style: italic;">FRONT ID PHOTO</h5>
-                                                                <img [src]="imageSrc1" *ngIf="imageSrc1" width="200" height="150" alt="Selected Image"/>
-                                                                <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
+                                                                <img [src]="imageSrc1" alt="Image 1" *ngIf="imageSrc1" width="200" height="150" alt="Selected Image"/>
+                                                                <input class="mt-2" type="file" (change)="onFileSelected($event,1)"/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -244,8 +244,8 @@
                                                         <div class="card-body">
                                                             <div style="cursor: pointer;" accept="image/*">
                                                                 <h5 class="card-text text-danger" style="font-style: italic;">BACK ID PHOTO</h5>
-                                                                <img [src]="imageSrc2" *ngIf="imageSrc2" width="200" height="150" alt="Selected Image"/>
-                                                                <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
+                                                                <img [src]="imageSrc2" alt="Image 2"*ngIf="imageSrc2" width="200" height="150" alt="Selected Image"/>
+                                                                <input class="mt-2" type="file" (change)="onFileSelected($event,2)"/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -255,8 +255,8 @@
                                                         <div class="card-body">
                                                             <div style="cursor: pointer;" accept="image/*">
                                                                 <h5 class="card-text text-danger" style="font-style: italic;">SIGNATURE PHOTO</h5>
-                                                                <img [src]="imageSrc3" *ngIf="imageSrc3" width="200" height="150" alt="Selected Image"/>
-                                                                <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
+                                                                <img [src]="imageSrc3" alt="Image 3" *ngIf="imageSrc3" width="200" height="150" alt="Selected Image"/>
+                                                                <input class="mt-2" type="file" (change)="onFileSelected($event,3)"/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -266,8 +266,8 @@
                                                         <div class="card-body">
                                                             <div style="cursor: pointer;" accept="image/*">
                                                                 <h5 class="card-text text-danger" style="font-style: italic;">KRA-PIN PHOTO</h5>
-                                                                <img [src]="imageSrc4" *ngIf="imageSrc4" width="200" height="150" alt="Selected Image"/>
-                                                                <input class="mt-2" type="file" (change)="onFileSelected($event)"/>
+                                                                <img [src]="imageSrc4" alt="Image 4" *ngIf="imageSrc4" width="200" height="150" alt="Selected Image"/>
+                                                                <input class="mt-2" type="file" (change)="onFileSelected($event,4)"/>
                                                             </div>
                                                         </div>
                                                     </div>
