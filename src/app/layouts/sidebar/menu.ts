@@ -94,7 +94,7 @@ export const MENU: MenuItem[] = [
     },
     {
       id: 141,
-      label: 'Approval Entries',
+      label: 'Approval Entries New',
       icon: 'bx-like',
       link: '/approval',
 

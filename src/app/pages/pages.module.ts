@@ -42,15 +42,17 @@ import { LeaveApplicationComponent } from './LeaveApplication/leaveapplication.c
 //import { PayslipComponent } from './pay-slip/pay-slip.component';
 import { LeaveApprovalComponent } from './leave-approval/leave-approval.component';
 import { P9Component } from './p9/p9.component';
+import { PayslipComponent } from './pay-slip/pay-slip.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
   interactionPlugin,
-  bootstrapPlugin
+  bootstrapPlugin,
+  
 ]);
 
 @NgModule({
-  declarations: [CalendarComponent, ChatComponent, LeaveApplicationComponent, LeaveApprovalComponent, P9Component],
+  declarations: [CalendarComponent,PayslipComponent, ChatComponent, LeaveApplicationComponent, LeaveApprovalComponent, P9Component],
   imports: [
     CommonModule,
     FormsModule,
@@ -83,7 +85,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     NgbTooltipModule,
     NgbCollapseModule,
     SimplebarAngularModule,
-    LightboxModule
+    LightboxModule,
+    FormsModule
   ],
 })
 export class PagesModule { }

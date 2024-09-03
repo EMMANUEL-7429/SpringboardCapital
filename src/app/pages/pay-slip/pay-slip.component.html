@@ -13,11 +13,9 @@
           <h4 class="card-title">Payslip</h4>
           <!-- Form to generate Payslip -->
           <form (ngSubmit)="generatePayslip()">
-            <!-- Period Selection -->
             <div class="col-sm-12">
               <label for="period">Period *</label>
-              <!--              <select id="period" class="form-control custom-select pl-2" [(ngModel)]="selectedPeriod" name="period" required> -->
-              <select id="period" class="form-control custom-select pl-2" name="period" required>
+              <select id="period" class="form-control custom-select pl-2" [(ngModel)]="selectedPeriod" name="period" required>
                 <option value="" disabled selected>Select...</option>
                 <option value="January">January</option>
                 <option value="February">February</option>
@@ -25,18 +23,15 @@
                 <!-- Add more options as needed -->
               </select>
             </div>
-
-            <!-- Checkbox for Excel Format -->
+          
             <div class="col-sm-12">
-              <!--              <input type="checkbox" class="form-check-input" id="excelFormat" [(ngModel)]="excelFormat" name="excelFormat">              -->
-              <input type="checkbox" class="form-check-input" id="excelFormat"  name="excelFormat">
+              <input type="checkbox" class="form-check-input" id="excelFormat" [(ngModel)]="excelFormat" name="excelFormat">
               <label class="form-check-label" for="excelFormat">Excel Format</label>
             </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary mt-3" (click)="generatePayslip()">Generate Payslip</button>
-
+          
+            <button type="submit" class="btn btn-primary mt-3">Generate Payslip</button>
           </form>
+          
         </div>
       </div>
     </div>
